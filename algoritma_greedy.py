@@ -13,22 +13,28 @@ def opScoreCalc(c):
     elif (c == '/'):
         return 2
 
-def solve24_greedy(lst):
+def solve24_greedy(inputList):
     '''
     Menerima masukan berupa list berisi 4 bilangan.\n
     Mengeluarkan jawaban greedy dari game 24.
     '''
     # Preprocessing
+    # mengubah list of string menjadi list of int untuk diurutkan
+    lstInt = [int(item) for item in inputList]
     # mengurutkan list angka menjadi mengecil
-    lst.sort(reverse = True)
+    lstInt.sort(reverse = True)
+    # mengembalikan list menjadi list of string untuk diproses lebih lanjut
+    listNum = [str(item) for item in lstInt]
     
     # inisialisasi
-    answer = lst.pop(0)
+    answer = listNum.pop(0)
     opScore = 0
     
-    for num in lst:
+    # iterasi setiap angka
+    for num in listNum:
         tempTotalScore = -99999
         
+        # iterasi tiap operator
         for op in operators:
             try:
                 # menghitung score dari ekspresi sejauh ini
@@ -44,6 +50,7 @@ def solve24_greedy(lst):
             except ZeroDivisionError:
                 pass
         
+        # menambahkan hasil iterasi greedy ke dalam jawaban
         answer += tempOp
         opScore = tempOpScore
     
