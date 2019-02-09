@@ -1,7 +1,8 @@
 import algoritma_greedy as greed
+import sys
 
-data_input = open("input.txt", "r")
-data_output = open("output.txt", "w+")
+data_input = open(sys.argv[1], "r")
+data_output = open(sys.argv[2], "w+")
 
 l_quartet = data_input.readlines()
 
