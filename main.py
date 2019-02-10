@@ -9,12 +9,15 @@ from kivy.uix.gridlayout import GridLayout
 class SolverGridLayout(GridLayout):
 
     deck = Deck.Deck()
-    showncards=[['',''],['',''],['',''],['','']]
+    showncards=[('','') for i in range(4)]
     count=0
     deck_blank=['./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/blank.png']
 
     def solve(self):
-        return algo.solve24_greedy([str(card[1]) for card in self.showncards])
+        if self.showncards != [('','') for i in range(4)]:
+            return algo.solve24_greedy([str(card[1]) for card in self.showncards])
+        else:
+            return ""
     def shuffle(self):
         self.deck.randomizeDeck()
     def draw(self):
