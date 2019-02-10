@@ -15,13 +15,6 @@
     padding: 10
     spacing: 10
 
-    # Where input is displayed
-    BoxLayout:
-        TextInput:
-            id: entry
-            font_size: 100
-            multiline: False
-
     BoxLayout:
         spacing: 10
         Image:
@@ -58,7 +51,17 @@
                 on_release: deck.source = solver.deck_blank[solver.count]; deck.reload();
 
     BoxLayout:
+        Label:
+            id: result
+            font_size: 95
+            shorten:True
+            text_size:self.size
+            halign: 'left'
+            valign: 'middle'
+            text: "Result: "
+
+    BoxLayout:
         spacing: 10
         CustButton:
             text: "SOLVE"
-            on_press: entry.text = solver.solve()
+            on_press: result.text = "Result: " + solver.solve()
