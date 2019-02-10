@@ -14,7 +14,7 @@ class SolverGridLayout(GridLayout):
     deck_blank=['./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/back.png','./img/blank.png']
 
     def solve(self):
-        return algo.solve24_greedy([str(card[1]) for card in self.showncards]);
+        return algo.solve24_greedy([str(card[1]) for card in self.showncards])
     def shuffle(self):
         self.deck.randomizeDeck()
     def draw(self):
