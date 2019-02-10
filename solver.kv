@@ -1,0 +1,68 @@
+<CustButton@Button>:
+    font_size: 55
+
+<SolverGridLayout>:
+    canvas.before:
+        Color:
+            rgb: 29/255, 31/255, 33/255
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    id: solver
+    rows: 4
+    padding: 10
+    spacing: 10
+
+    # Where input is displayed
+    BoxLayout:
+        TextInput:
+            id: entry
+            font_size: 100
+            multiline: False
+
+    BoxLayout:
+        spacing: 10
+        Image:
+            id:image1
+            source: './img/blank.png'
+        Image:
+            id:image2
+            source: './img/blank.png'
+        AsyncImage:
+            id:deck
+            source: solver.deck_blank[solver.count]
+
+    BoxLayout:
+        spacing: 10
+        Image:
+            id:image3
+            source: './img/blank.png'
+        Image:
+            id:image4
+            source: './img/blank.png'
+        CustButton:
+            text: "SHUFFLE"
+            on_press: solver.shuffle()
+
+    BoxLayout:
+        spacing: 10
+        CustButton:
+            text: "REFRESH"
+            on_press:image1.source = solver.showncards[0][0]
+            on_release:image1.reload()
+            on_press:image2.source = solver.showncards[1][0]
+            on_release:image2.reload()
+            on_press:image3.source = solver.showncards[2][0]
+            on_release:image3.reload()
+            on_press:image4.source = solver.showncards[3][0]
+            on_release:image4.reload()
+            on_press:deck.source = solver.deck_blank[solver.count]
+            on_release:deck.reload()
+
+        CustButton:
+            text: "DRAW"
+            on_press:solver.draw()
+
+        CustButton:
+            text: "SOLVE"
+            on_press: entry.text = solver.solve()
