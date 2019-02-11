@@ -3,9 +3,12 @@ This program is created as part of a task for Strategi Algoritma (IF2211) course
 This program implements greedy algorithm to solve a modified version 24 game.
 ## Instalation
 Install Kivy 1.9.0 or up
-Windows : <https://kivy.org/doc/stable/installation/installation-windows.html>
-Linux   : <https://kivy.org/doc/stable/installation/installation-linux.html>
-OSX     : <https://kivy.org/doc/stable/installation/installation-osx.html>
+
+- Windows : <https://kivy.org/doc/stable/installation/installation-windows.html>
+
+- Linux   : <https://kivy.org/doc/stable/installation/installation-linux.html>
+
+- OSX     : <https://kivy.org/doc/stable/installation/installation-osx.html>
 
 ## How to run
 ### Console version
